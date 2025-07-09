@@ -65,7 +65,7 @@ def vectorize_texts(texts):
     return X, vectorizer
 
 def train_model(X, y):
-    model = LogisticRegression(max_iter=1000)
+    model = LogisticRegression(max_iter=10,multi_class='multinomial',class_weight='balanced', solver='lbfgs',random_state=10)
     model.fit(X, y)
     return model
 
