@@ -73,18 +73,18 @@
 ### 5.Classical machine learning model
 * استفاده از الگوریتم ماشین لرنینگ LogisticRegression
 * 🧼و استفاده ازش برای تحلیل احساس متن کاربران
-##  LogisticRegression  Classification Report:
+## Model LogisticRegression Classification Report:
 
               precision    recall  f1-score   support
 
-       mixed       0.86      0.75      0.80         8
-    negative       0.85      0.73      0.79        15
-     neutral       0.80      0.44      0.57         9
-    positive       0.74      0.89      0.81        36
+        mixed       0.86      0.75      0.80         8
+     negative       0.85      0.73      0.79        15
+      neutral       0.80      0.44      0.57         9
+     positive       0.74      0.89      0.81        36
 
-    accuracy                           0.78        68
-   macro avg       0.81      0.70      0.74        68
-weighted avg       0.79      0.78      0.77        68
+     accuracy                           0.78        68
+    macro avg       0.81      0.70      0.74        68
+ weighted avg       0.79      0.78      0.77        68
 
 ### 6. 🤖 Sentiment Analysis with BERT
 
