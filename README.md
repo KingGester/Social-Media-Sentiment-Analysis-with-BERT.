@@ -72,8 +72,8 @@
 
 ### 5.Classical machine learning model
 * استفاده از الگوریتم ماشین لرنینگ LogisticRegression
-* 🧼و استفاده ازش برای تحلیل احساس متن کاربران
-## Model LogisticRegression Classification Report:
+* 🧼واستفاده ازش برای تحلیل احساسی متن کاربران
+## Model LogisticRegression Classification Report:.
 
               precision    recall  f1-score   support
 
@@ -83,8 +83,8 @@
      positive       0.74      0.89      0.81        36
 
      accuracy                           0.78        68
-    macro avg       0.81      0.70      0.74        68
- weighted avg       0.79      0.78      0.77        68
+     macro avg      0.81      0.70      0.74        68
+     weighted avg   0.79      0.78      0.77        68
 
 ### 6. 🤖 Sentiment Analysis with BERT
 
@@ -131,7 +131,7 @@
 
 ## 🚀 Run the Code (Colab Friendly)
 
-برای اجرای این پروژه در Colab:
+برای اجرای این پروژه در Colab:.
 
 ```python
 !pip install transformers scikit-learn
