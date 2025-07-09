@@ -50,38 +50,64 @@
 
 ## ⚙️ Steps Performed
 
-### 1. 📊 Exploratory Data Analysis (EDA)
+### 1. Analysis of user participation
+* آمار از بیشترین میانگین کمترین (likesوRetweets)
+* برسی ترند های کلی
+* آیا تعامل در حال افزایش است ؟ یا الگوی خاصی دارد؟
+
+### 2.Check the time trend
+* رسم نمودار زمانی برای تعداد پست ها ,لایک ها و ریتیوت ها در بازده ها مختلف مقلا روزانه هفتگی
+* تحلیل دورهای مثلا اخر هفته ها تعامل بیشتر است ؟
+
+### 3. 📊 Exploratory Data Analysis (EDA)
 
 * تحلیل آماری تعداد لایک و ریتوییت
 * بررسی همبستگی بین محبوبیت محتوا و احساسات کاربران
 * مصور سازی توزیع احساسات در داده‌ها
 
-### 2. 🧼 Data Preprocessing
+### 4.  Data Preprocessing
 
-* پاکسازی متن (حذف URL، اعداد، نمادها)
-* نرمال‌سازی و استانداردسازی برچسب‌های احساسی
+* پیش پردازش متن برای مدل کردن
+* نرمال سازی متن و علایم نگارشی
 
-### 3. 🤖 Sentiment Analysis with BERT
+### 5.Classical machine learning model
+* استفاده از الگوریتم ماشین لرنینگ LogisticRegression
+* 🧼و استفاده ازش برای تحلیل احساس متن کاربران
+### 6. 🤖 Sentiment Analysis with BERT
 
 * استفاده از مدل `BertForSequenceClassification`
 * طبقه‌بندی احساسات به سه دسته اصلی: **Positive**, **Negative**, **Neutral**
 * اضافه کردن ستون `PredictedSentiment` به خروجی CSV
+* طبقه بندی احساسات 
+* تحلیل اینکه چه احساسی بیتشتر دیده می شود و آیا زمان یا میزان تعامل رابطه ای دارند یا نه ؟
 
 ## 📈 Visualizations
 
-### 📌 Distribution of Predicted Sentiments
-
-![sentiment\_distribution](plots/sentiment_distribution.png)
 
 ### 📌 Likes and Retweets Distribution
 
-![likes\_retweets\_distribution](plots/likes_retweets_distribution.png)
+![likes\_retweets\_distribution](https://github.com/KingGester/Social-Media-Sentiment-Analysis-with-BERT./blob/main/outputs/plot_engagement_distributions.png)
 
-### 📌 Average Engagement by Sentiment
 
-![engagement\_by\_sentiment](plots/engagement_by_sentiment.png)
+### 📌 Engagement By Weekday
 
-## 📂 Output
+
+![Engagement By Weekday](https://github.com/KingGester/Social-Media-Sentiment-Analysis-with-BERT./blob/main/outputs/plot_engagement_by_weekday.png)
+
+### Engagement By Month
+
+![Engagement By Month.png](https://github.com/KingGester/Social-Media-Sentiment-Analysis-with-BERT./blob/main/outputs/plot_engagement_by_month.png)
+
+### Engagement By Hours
+![Engagement By Hours](https://github.com/KingGester/Social-Media-Sentiment-Analysis-with-BERT./blob/main/outputs/plot_engagement_by_hour.png)
+
+### Posts Over Time
+![Posts Over Time](https://github.com/KingGester/Social-Media-Sentiment-Analysis-with-BERT./blob/main/outputs/plot_posts_over_time.png)
+
+### Social-Media-Sentiment-Analysis-with-BERT.
+![Social-Media-Sentiment-Analysis-with-BERT.](https://github.com/KingGester/Social-Media-Sentiment-Analysis-with-BERT./blob/main/outputs/Distribution%20of%20Predicted%20Sentiments%20by%20BERT.png)
+
+## 📂 data
 
 فایل نهایی `sentiment_predictions.csv` شامل:
 
