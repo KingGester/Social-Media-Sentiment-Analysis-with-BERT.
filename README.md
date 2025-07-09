@@ -73,7 +73,7 @@
 ### 5.Classical machine learning model
 * استفاده از الگوریتم ماشین لرنینگ LogisticRegression
 * 🧼و استفاده ازش برای تحلیل احساس متن کاربران
-## Classification Report:
+##  LogisticRegression  Classification Report:
 
               precision    recall  f1-score   support
 
