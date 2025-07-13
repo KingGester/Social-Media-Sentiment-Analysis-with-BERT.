@@ -27,7 +27,9 @@
 .
 ├── data /
 │   ├── sentimentdataset.csv                # فایل اصلی دیتاست
-│   ├── sentiment_predictions.csv           # خروجی BERT شامل احساسات پیش‌بینی‌شده
+│   ├── sentiment_predictions.csv           # خروجی 
+│   ├── emotion_predictions.csv             # خروجی آموزش داده شده 
+BERT شامل احساسات پیش‌بینی‌شده
 ├── notebooks/
 │   ├── 01_engagement_analysis.ipynb
 │   ├── 02_time_analysis.ipynb
@@ -223,7 +225,7 @@ plt.tight_layout()
 plt.show()
 ```
 ## نمودار مدل
-
+![Emotion_Analysis_Pretrained_Model](https://github.com/KingGester/Social-Media-Sentiment-Analysis-with-BERT./blob/main/outputs/download.png)
 ## لود مدل آماده تشخیص احساسات
 ```
 model_name = "j-hartmann/emotion-english-distilroberta-base"
