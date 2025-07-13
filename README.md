@@ -166,6 +166,96 @@ df['PredictedSentiment'] = label_encoder.inverse_transform(preds.numpy())
 df.to_csv("sentiment_predictions.csv", index=False)
 ```
 
+
+## 🚀 Run the Code (Colab Friendly): Emotion_Analysis_Pretrained_Model
+!pip install transformers
+```
+import pandas as pd
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+import torch
+from scipy.special import softmax
+import matplotlib.pyplot as plt
+
+# Upload dataset
+from google.colab import files
+uploaded = files.upload()
+
+# Load data
+df = pd.read_csv("sentimentdataset.csv")
+df = df[["Text"]].dropna()
+texts = df["Text"].astype(str).tolist()
+
+# Load pre-trained emotion model
+model_name = "j-hartmann/emotion-english-distilroberta-base"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForSequenceClassification.from_pretrained(model_name)
+model.eval()
+
+# Predict emotions
+emotions = []
+probs_list = []
+
+for text in texts:
+    inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
+    with torch.no_grad():
+        outputs = model(**inputs)
+        scores = softmax(outputs.logits.numpy()[0])
+        probs_list.append(scores)
+        emotions.append(model.config.id2label[scores.argmax()])
+
+# Add to dataframe
+df["PredictedEmotion"] = emotions
+df.to_csv("emotion_predictions.csv", index=False)
+files.download("emotion_predictions.csv")
+
+# Plot emotion distribution
+import numpy as np
+labels = list(model.config.id2label.values())
+probs_array = np.array(probs_list)
+avg_probs = probs_array.mean(axis=0)
+
+plt.figure(figsize=(10,5))
+plt.bar(labels, avg_probs)
+plt.title("Average Emotion Distribution")
+plt.ylabel("Probability")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+```
+## نمودار مدل
+
+## لود مدل آماده تشخیص احساسات
+```
+model_name = "j-hartmann/emotion-english-distilroberta-base"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForSequenceClassification.from_pretrained(model_name)
+model.eval()
+```
+###  پیش‌بینی احساسات متن‌ها
+```
+emotions = []
+probs_list = []
+
+for text in texts:
+    inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
+    with torch.no_grad():
+        outputs = model(**inputs)
+        scores = softmax(outputs.logits.numpy()[0])
+        probs_list.append(scores)
+        emotions.append(model.config.id2label[scores.argmax()])
+```
+📌 حلقه روی هر متن:
+
+متن رو Tokenize می‌کنه
+
+وارد مدل می‌کنه
+
+خروجی logits مدل رو با softmax به احتمال احساسات تبدیل می‌کنه
+
+بیشترین احتمال (argmax) رو به عنوان احساس نهایی انتخاب می‌کنه
+
+اون احساس رو به لیست اضافه می‌کنه
+
 ## 💡 Future Suggestions
 
 * استفاده از مدل‌های پیشرفته‌تر مانند `RoBERTa` یا `DistilBERT`
